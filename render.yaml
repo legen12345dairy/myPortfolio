@@ -1,19 +1,19 @@
 databases:
-  - name: portfolio-db
+  - name: mayank-rawat-db
     databaseName: portfolio
     user: portfolio
 
 services:
   # Backend API Service
   - type: web
-    name: portfolio-api
+    name: mayank-rawat-api
     env: python
     buildCommand: cd backend && pip install -r requirements.txt
     startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: portfolio-db
+          name: mayank-rawat-db
           property: connectionString
       - key: CORS_ORIGINS
         sync: false
@@ -21,7 +21,7 @@ services:
     
   # Frontend Service
   - type: web
-    name: portfolio-frontend
+    name: mayank-rawat-portfolio
     env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
