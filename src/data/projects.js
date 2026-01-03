@@ -1,0 +1,48 @@
+export const projectsData = [
+  {
+    id: 1,
+    title: 'Paytm Home',
+    category: 'iOS Application',
+    description: 'Handling Paytm homepage, left menu and global search and deliver various features along with these pages.',
+    technologies: ['Swift', 'UIKit', 'REST APIs', 'MVVM'],
+    githubUrl: '',
+    liveUrl: 'https://apps.apple.com/in/app/paytm-secure-payments-wallet/id473941634',
+  },
+  {
+    id: 2,
+    title: 'Paytm Storefront Module',
+    category: 'iOS Application',
+    description: 'Maintained and enhanced Storefront module which acts as a client for other pages, handling navigation and content rendering.',
+    technologies: ['Swift', 'UIKit', 'Combine', 'Modular Architecture'],
+    githubUrl: '',
+    liveUrl: 'https://apps.apple.com/in/app/paytm-secure-payments-wallet/id473941634',
+  },
+  {
+    id: 3,
+    title: 'Paytm Common UI',
+    category: 'iOS Framework',
+    description: 'Used for having smaller UI components which is used across Paytm other verticals.',
+    technologies: ['Swift', 'UIKit', 'SwiftUI', 'Component Library'],
+    githubUrl: '',
+    liveUrl: 'https://apps.apple.com/in/app/paytm-secure-payments-wallet/id473941634',
+  },
+  {
+    id: 4,
+    title: 'Phoenix & Alipay SDK',
+    category: 'iOS Framework',
+    description: 'Worked on phoenix and alipay SDK which handles all the React pages inside the app, enabling hybrid app functionality.',
+    technologies: ['Swift', 'React Native', 'JavaScript Bridge', 'SDK Development'],
+    githubUrl: '',
+    liveUrl: 'https://apps.apple.com/in/app/paytm-secure-payments-wallet/id473941634',
+  },
+  {
+    id: 5,
+    title: 'Universal Guide Module',
+    category: 'iOS Feature',
+    description: 'Built Universal Guide Module in Smart Things App that shows content based on user\'s TV viewing history and enables content switching between mobile and TV.',
+    technologies: ['Swift', 'UIKit', 'Content APIs', 'Smart TV Integration'],
+    githubUrl: '',
+    liveUrl: 'https://apps.apple.com/in/app/smartthings/id1222822904',
+  },
+]
+
