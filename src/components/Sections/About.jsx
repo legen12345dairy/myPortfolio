@@ -58,9 +58,17 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <div className="w-full max-w-md aspect-square bg-gradient-to-br from-primary-400 to-blue-500 rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-xl">
-              <span className="opacity-50">Your Photo</span>
-            </div>
+            {aboutData.photo_url ? (
+              <img 
+                src={aboutData.photo_url} 
+                alt={aboutData.name}
+                className="w-full max-w-md aspect-square object-cover rounded-2xl shadow-xl"
+              />
+            ) : (
+              <div className="w-full max-w-md aspect-square bg-gradient-to-br from-primary-400 to-blue-500 rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-xl">
+                <span className="opacity-50">Your Photo</span>
+              </div>
+            )}
           </motion.div>
         </div>
 
