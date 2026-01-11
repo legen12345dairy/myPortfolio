@@ -95,7 +95,7 @@ When I'm not coding, you can find me exploring new places and traveling.""",
         {"number": "7+", "label": "Years Experience"},
         {"number": "2", "label": "Major Companies"},
     ],
-    "photo_url": "",  # Add your photo URL here
+    "photo_url": "/photo.jpg",
 }
 
 # Hero data
