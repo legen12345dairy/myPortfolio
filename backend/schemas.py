@@ -115,10 +115,13 @@ class ContactBase(BaseModel):
     email: str
     linkedin: Optional[str] = None
     github: Optional[str] = None
-    twitter: Optional[str] = None
+    instagram: Optional[str] = None
+    whatsapp: Optional[str] = None
+    phone: Optional[str] = None
     linkedin_url: Optional[str] = None
     github_url: Optional[str] = None
-    twitter_url: Optional[str] = None
+    instagram_url: Optional[str] = None
+    whatsapp_url: Optional[str] = None
 
 
 class ContactCreate(ContactBase):
@@ -129,10 +132,13 @@ class ContactUpdate(BaseModel):
     email: Optional[str] = None
     linkedin: Optional[str] = None
     github: Optional[str] = None
-    twitter: Optional[str] = None
+    instagram: Optional[str] = None
+    whatsapp: Optional[str] = None
+    phone: Optional[str] = None
     linkedin_url: Optional[str] = None
     github_url: Optional[str] = None
-    twitter_url: Optional[str] = None
+    instagram_url: Optional[str] = None
+    whatsapp_url: Optional[str] = None
 
 
 class ContactResponse(ContactBase):

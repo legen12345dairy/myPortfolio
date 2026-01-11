@@ -209,6 +209,10 @@ export const api = {
       body: JSON.stringify(data),
     });
   },
+  sendContactMessage: (data) => apiRequest('/api/contact/message', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  }),
 
   // Blog
   getBlogPosts: () => apiRequest('/api/blog'),

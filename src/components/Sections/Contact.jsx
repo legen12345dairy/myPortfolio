@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaEnvelope, FaLinkedin, FaGithub, FaInstagram, FaWhatsapp, FaPhone } from 'react-icons/fa'
 import Card from '../UI/Card'
 import Button from '../UI/Button'
 import { usePortfolioData } from '../../hooks/usePortfolioData'
+import { api } from '../../services/api'
 
 const Contact = () => {
   const { data: contactData } = usePortfolioData('contact')
@@ -21,12 +22,26 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission (e.g., send to an API or email service)
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      await api.sendContactMessage(formData)
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (!contactData) {
@@ -41,6 +56,18 @@ const Contact = () => {
       link: `mailto:${contactData.email}`,
     },
     {
+      icon: FaPhone,
+      label: 'Phone',
+      value: contactData.phone,
+      link: `tel:${contactData.phone?.replace(/[^0-9+]/g, '')}`,
+    },
+    {
+      icon: FaWhatsapp,
+      label: 'WhatsApp',
+      value: contactData.whatsapp,
+      link: contactData.whatsapp_url,
+    },
+    {
       icon: FaLinkedin,
       label: 'LinkedIn',
       value: contactData.linkedin,
@@ -53,12 +80,12 @@ const Contact = () => {
       link: contactData.github_url,
     },
     {
-      icon: FaTwitter,
-      label: 'Twitter',
-      value: contactData.twitter,
-      link: contactData.twitter_url,
+      icon: FaInstagram,
+      label: 'Instagram',
+      value: contactData.instagram,
+      link: contactData.instagram_url,
     },
-  ].filter(info => info.value) // Filter out empty values
+  ].filter(info => info.value && info.link) // Filter out empty values
 
   return (
     <section id="contact" className="section bg-gray-50">
@@ -143,8 +170,24 @@ const Contact = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
                   />
                 </div>
-                <Button type="submit" variant="primary" size="lg" className="w-full">
-                  Send Message
+                {submitStatus === 'success' && (
+                  <div className="p-3 bg-green-100 text-green-700 rounded-lg text-sm">
+                    ✓ Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="p-3 bg-red-100 text-red-700 rounded-lg text-sm">
+                    ✗ Failed to send message. Please try again or contact me directly.
+                  </div>
+                )}
+                <Button 
+                  type="submit" 
+                  variant="primary" 
+                  size="lg" 
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </Card>

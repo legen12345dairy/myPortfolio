@@ -3,7 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List, Optional
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
+from pydantic import BaseModel
 
 from database import SessionLocal, engine, Base
 from models import Project, Skill, About, Hero, Contact, BlogPost, Resume
@@ -258,6 +262,74 @@ def update_contact(contact: ContactUpdate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_contact)
     return db_contact
+
+
+# Contact form message schema
+class ContactMessage(BaseModel):
+    name: str
+    email: str
+    subject: str
+    message: str
+
+
+@app.post("/api/contact/message")
+def send_contact_message(message: ContactMessage):
+    """
+    Send contact form message via email
+    """
+    try:
+        # Get recipient email from contact info or use default
+        recipient_email = os.getenv("CONTACT_EMAIL", "rawat.mayank1234@gmail.com")
+        
+        # Create email
+        msg = MIMEMultipart()
+        msg['From'] = os.getenv("SMTP_FROM_EMAIL", "noreply@portfolio.com")
+        msg['To'] = recipient_email
+        msg['Subject'] = f"Portfolio Contact: {message.subject}"
+        
+        # Email body
+        body = f"""
+        New message from your portfolio contact form:
+        
+        Name: {message.name}
+        Email: {message.email}
+        Subject: {message.subject}
+        
+        Message:
+        {message.message}
+        
+        ---
+        You can reply directly to: {message.email}
+        """
+        
+        msg.attach(MIMEText(body, 'plain'))
+        
+        # Try to send email if SMTP is configured
+        smtp_server = os.getenv("SMTP_SERVER")
+        smtp_port = int(os.getenv("SMTP_PORT", "587"))
+        smtp_user = os.getenv("SMTP_USER")
+        smtp_password = os.getenv("SMTP_PASSWORD")
+        
+        if smtp_server and smtp_user and smtp_password:
+            try:
+                server = smtplib.SMTP(smtp_server, smtp_port)
+                server.starttls()
+                server.login(smtp_user, smtp_password)
+                server.send_message(msg)
+                server.quit()
+            except Exception as e:
+                # Log error but don't fail the request
+                print(f"Failed to send email: {e}")
+        
+        # Also log to console for debugging
+        print(f"Contact form submission: {message.name} ({message.email}) - {message.subject}")
+        
+        return {
+            "success": True,
+            "message": "Your message has been sent successfully!"
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to send message: {str(e)}")
 
 
 # Blog endpoints

@@ -51,10 +51,13 @@ class Contact(Base):
     email = Column(String, nullable=False)
     linkedin = Column(String, nullable=True)
     github = Column(String, nullable=True)
-    twitter = Column(String, nullable=True)
+    instagram = Column(String, nullable=True)
+    whatsapp = Column(String, nullable=True)
+    phone = Column(String, nullable=True)
     linkedin_url = Column(String, nullable=True)
     github_url = Column(String, nullable=True)
-    twitter_url = Column(String, nullable=True)
+    instagram_url = Column(String, nullable=True)
+    whatsapp_url = Column(String, nullable=True)
 
 
 class BlogPost(Base):
