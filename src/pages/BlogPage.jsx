@@ -16,7 +16,7 @@ const BlogPage = () => {
     : blogPosts.filter(post => post.tags.includes(selectedTag))
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="section container-custom">
         {/* Header */}
         <motion.div
@@ -26,7 +26,7 @@ const BlogPage = () => {
           className="text-center mb-12"
         >
           <h1 className="heading text-gradient mb-4">Blog</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Thoughts, tutorials, and insights on web development and technology
           </p>
         </motion.div>
@@ -45,7 +45,7 @@ const BlogPage = () => {
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                 selectedTag === tag
                   ? 'bg-primary-600 text-white shadow-md'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 shadow-sm'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 shadow-sm'
               }`}
             >
               {tag}
@@ -74,7 +74,7 @@ const BlogPage = () => {
             animate={{ opacity: 1 }}
             className="text-center py-12"
           >
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
               No blog posts found for this tag.
             </p>
           </motion.div>

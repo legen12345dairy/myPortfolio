@@ -11,7 +11,7 @@ const Skills = () => {
   }
 
   return (
-    <section id="skills" className="section bg-gray-50">
+    <section id="skills" className="section bg-gray-50 dark:bg-gray-800">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,10 +41,10 @@ const Skills = () => {
                   {category.skills.map((skill) => (
                     <div key={skill.name}>
                       <div className="flex justify-between mb-1">
-                        <span className="text-gray-700 font-medium">{skill.name}</span>
+                        <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
                         <span className="text-primary-600 font-semibold">{skill.level}%</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <motion.div
                           className="bg-gradient-to-r from-primary-600 to-blue-600 h-2 rounded-full"
                           initial={{ width: 0 }}

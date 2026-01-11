@@ -19,7 +19,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 to-blue-50 py-20">
+    <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20">
       <div className="container-custom text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ const Hero = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-4"
+            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -45,7 +45,7 @@ const Hero = () => {
           </motion.p>
           
           <motion.p 
-            className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto"
+            className="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -90,7 +90,7 @@ const Hero = () => {
         >
           <button
             onClick={scrollToAbout}
-            className="text-gray-500 hover:text-primary-600 transition-colors animate-bounce"
+            className="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors animate-bounce"
             aria-label="Scroll down"
           >
             <FaArrowDown size={24} />

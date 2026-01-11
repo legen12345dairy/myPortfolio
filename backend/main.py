@@ -305,29 +305,47 @@ def send_contact_message(message: ContactMessage):
         msg.attach(MIMEText(body, 'plain'))
         
         # Try to send email if SMTP is configured
-        smtp_server = os.getenv("SMTP_SERVER")
+        smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
         smtp_port = int(os.getenv("SMTP_PORT", "587"))
-        smtp_user = os.getenv("SMTP_USER")
+        smtp_user = os.getenv("SMTP_USER", recipient_email)  # Default to recipient email
         smtp_password = os.getenv("SMTP_PASSWORD")
         
-        if smtp_server and smtp_user and smtp_password:
+        email_sent = False
+        error_message = None
+        
+        if smtp_user and smtp_password:
             try:
                 server = smtplib.SMTP(smtp_server, smtp_port)
                 server.starttls()
                 server.login(smtp_user, smtp_password)
                 server.send_message(msg)
                 server.quit()
+                email_sent = True
+                print(f"✓ Email sent successfully to {recipient_email}")
             except Exception as e:
-                # Log error but don't fail the request
-                print(f"Failed to send email: {e}")
+                error_message = str(e)
+                print(f"✗ Failed to send email: {e}")
+                print(f"  SMTP Server: {smtp_server}:{smtp_port}")
+                print(f"  SMTP User: {smtp_user}")
+        else:
+            print("⚠ SMTP not configured - email not sent")
+            print(f"  Missing: SMTP_USER={smtp_user is None}, SMTP_PASSWORD={'*' if smtp_password else 'None'}")
         
-        # Also log to console for debugging
+        # Always log to console for debugging
         print(f"Contact form submission: {message.name} ({message.email}) - {message.subject}")
         
-        return {
-            "success": True,
-            "message": "Your message has been sent successfully!"
-        }
+        if email_sent:
+            return {
+                "success": True,
+                "message": "Your message has been sent successfully!"
+            }
+        else:
+            # Still return success to user, but log the error
+            return {
+                "success": True,
+                "message": "Your message has been received! (Note: Email delivery may be delayed)",
+                "warning": error_message if error_message else "SMTP not configured"
+            }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to send message: {str(e)}")
 

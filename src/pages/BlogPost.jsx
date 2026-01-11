@@ -18,8 +18,8 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Post Not Found</h1>
-          <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Post Not Found</h1>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">The blog post you're looking for doesn't exist.</p>
           <Link to="/blog" className="btn-primary">
             Back to Blog
           </Link>
@@ -29,7 +29,7 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <article className="section container-custom max-w-4xl">
         {/* Back Button */}
         <motion.div
@@ -40,7 +40,7 @@ const BlogPost = () => {
         >
           <button
             onClick={() => navigate('/blog')}
-            className="flex items-center text-primary-600 hover:text-primary-700 font-medium"
+            className="flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 font-medium"
           >
             <FaArrowLeft className="mr-2" />
             Back to Blog
@@ -54,11 +54,11 @@ const BlogPost = () => {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-6">
+          <div className="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-400 mb-6">
             <span className="flex items-center">
               <FaCalendar className="mr-2" />
               {post.date}
@@ -73,7 +73,7 @@ const BlogPost = () => {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-medium"
+                className="px-4 py-2 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full font-medium"
               >
                 {tag}
               </span>
@@ -86,41 +86,41 @@ const BlogPost = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-lg shadow-md p-8 md:p-12"
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900/50 p-8 md:p-12"
         >
           <div className="prose prose-lg max-w-none">
             <ReactMarkdown
               components={{
                 h1: ({ children }) => (
-                  <h1 className="text-3xl font-bold text-gray-900 mt-8 mb-4">{children}</h1>
+                  <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4">{children}</h1>
                 ),
                 h2: ({ children }) => (
-                  <h2 className="text-2xl font-bold text-gray-900 mt-6 mb-3">{children}</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-6 mb-3">{children}</h2>
                 ),
                 h3: ({ children }) => (
-                  <h3 className="text-xl font-bold text-gray-900 mt-4 mb-2">{children}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mt-4 mb-2">{children}</h3>
                 ),
                 p: ({ children }) => (
-                  <p className="text-gray-700 mb-4 leading-relaxed">{children}</p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">{children}</p>
                 ),
                 ul: ({ children }) => (
-                  <ul className="list-disc list-inside mb-4 text-gray-700 space-y-2">{children}</ul>
+                  <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-300 space-y-2">{children}</ul>
                 ),
                 ol: ({ children }) => (
-                  <ol className="list-decimal list-inside mb-4 text-gray-700 space-y-2">{children}</ol>
+                  <ol className="list-decimal list-inside mb-4 text-gray-700 dark:text-gray-300 space-y-2">{children}</ol>
                 ),
                 code: ({ inline, children }) =>
                   inline ? (
-                    <code className="bg-gray-100 text-primary-600 px-2 py-1 rounded font-mono text-sm">
+                    <code className="bg-gray-100 dark:bg-gray-700 text-primary-600 dark:text-primary-400 px-2 py-1 rounded font-mono text-sm">
                       {children}
                     </code>
                   ) : (
-                    <code className="block bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
+                    <code className="block bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
                       {children}
                     </code>
                   ),
                 blockquote: ({ children }) => (
-                  <blockquote className="border-l-4 border-primary-500 pl-4 italic text-gray-700 my-4">
+                  <blockquote className="border-l-4 border-primary-500 dark:border-primary-400 pl-4 italic text-gray-700 dark:text-gray-300 my-4">
                     {children}
                   </blockquote>
                 ),

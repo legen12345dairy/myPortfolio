@@ -19,7 +19,7 @@ const Projects = () => {
     : projectsData.filter(project => project.category === filter)
 
   return (
-    <section id="projects" className="section bg-white">
+    <section id="projects" className="section bg-white dark:bg-gray-900">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,7 +46,7 @@ const Projects = () => {
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                 filter === category
                   ? 'bg-primary-600 text-white shadow-md'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
               }`}
             >
               {category}
@@ -74,14 +74,14 @@ const Projects = () => {
 
                 {/* Project Info */}
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{project.description}</p>
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm"
+                      className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm"
                     >
                       {tech}
                     </span>
@@ -95,7 +95,7 @@ const Projects = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 hover:text-primary-600 transition-colors"
+                      className="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                     >
                       <FaGithub className="mr-2" />
                       Code
@@ -106,7 +106,7 @@ const Projects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 hover:text-primary-600 transition-colors"
+                      className="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                     >
                       <FaExternalLinkAlt className="mr-2" />
                       Live Demo

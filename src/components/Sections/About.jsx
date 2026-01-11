@@ -22,7 +22,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section bg-white">
+    <section id="about" className="section bg-white dark:bg-gray-900">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -43,7 +43,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="subheading mb-4">Hello!</h3>
-            <div className="space-y-4 text-gray-600">
+            <div className="space-y-4 text-gray-600 dark:text-gray-300">
               {aboutData.description.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph.trim()}</p>
               ))}
@@ -86,7 +86,7 @@ const About = () => {
                 <div className="text-4xl font-bold text-gradient mb-2">
                   {item.number}
                 </div>
-                <div className="text-gray-600">{item.label}</div>
+                <div className="text-gray-600 dark:text-gray-300">{item.label}</div>
               </Card>
             </motion.div>
           ))}

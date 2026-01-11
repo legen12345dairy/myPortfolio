@@ -88,7 +88,7 @@ const Contact = () => {
   ].filter(info => info.value && info.link) // Filter out empty values
 
   return (
-    <section id="contact" className="section bg-gray-50">
+    <section id="contact" className="section bg-gray-50 dark:bg-gray-800">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -98,7 +98,7 @@ const Contact = () => {
           className="text-center mb-12"
         >
           <h2 className="heading text-gradient">Get In Touch</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have a project in mind or just want to chat? Feel free to reach out!
           </p>
         </motion.div>
@@ -115,7 +115,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
                     Name
                   </label>
                   <input
@@ -125,7 +125,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
                   />
                 </div>
                 <div>
@@ -139,7 +139,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
                   />
                 </div>
                 <div>
@@ -153,7 +153,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
                   />
                 </div>
                 <div>
@@ -171,12 +171,12 @@ const Contact = () => {
                   />
                 </div>
                 {submitStatus === 'success' && (
-                  <div className="p-3 bg-green-100 text-green-700 rounded-lg text-sm">
+                  <div className="p-3 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg text-sm">
                     ✓ Message sent successfully! I'll get back to you soon.
                   </div>
                 )}
                 {submitStatus === 'error' && (
-                  <div className="p-3 bg-red-100 text-red-700 rounded-lg text-sm">
+                  <div className="p-3 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg text-sm">
                     ✗ Failed to send message. Please try again or contact me directly.
                   </div>
                 )}
@@ -202,7 +202,7 @@ const Contact = () => {
           >
             <div className="space-y-6">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
                 Feel free to reach out through any of these channels. I'm always open to 
                 discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
