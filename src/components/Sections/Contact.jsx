@@ -112,7 +112,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <Card>
-              <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
+              <h3 className="text-2xl font-bold mb-6 dark:text-gray-100">Send Me a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
@@ -167,7 +167,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 resize-none"
                   />
                 </div>
                 {submitStatus === 'success' && (
@@ -201,7 +201,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold mb-6 dark:text-gray-100">Contact Information</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
                 Feel free to reach out through any of these channels. I'm always open to 
                 discussing new projects, creative ideas, or opportunities to be part of your vision.
@@ -217,13 +217,13 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="flex items-center">
-                    <div className="text-primary-600 text-3xl mr-4">
+                  <Card className="flex items-center hover:scale-105 transition-transform cursor-pointer">
+                    <div className="text-primary-600 dark:text-cyan-400 text-3xl mr-4">
                       <info.icon />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">{info.label}</div>
-                      <div className="text-gray-600">{info.value}</div>
+                      <div className="font-semibold text-gray-900 dark:text-gray-100">{info.label}</div>
+                      <div className="text-gray-600 dark:text-gray-300">{info.value}</div>
                     </div>
                   </Card>
                 </motion.a>

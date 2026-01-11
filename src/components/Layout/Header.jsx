@@ -64,7 +64,7 @@ const Header = () => {
             ))}
             <Link
               to="/blog"
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium"
             >
               Blog
             </Link>
@@ -78,7 +78,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700 hover:text-primary-600 transition-colors"
+            className="md:hidden text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-cyan-400 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -94,7 +94,7 @@ const Header = () => {
                 <button
                   key={item.sectionId}
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="text-left text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                  className="text-left text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-cyan-400 transition-colors font-medium"
                 >
                   {item.name}
                 </button>
