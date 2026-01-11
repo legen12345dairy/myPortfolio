@@ -66,14 +66,14 @@ const Projects = () => {
             >
               <Card className="h-full flex flex-col">
                 {/* Project Image */}
-                <div className="mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary-400 to-blue-500 aspect-video flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold opacity-50">
+                <div className="mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary-400 to-blue-500 dark:from-primary-700 dark:to-blue-700 aspect-video flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold opacity-50 dark:opacity-70">
                     {project.title}
                   </span>
                 </div>
 
                 {/* Project Info */}
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <h3 className="text-xl font-bold mb-2 dark:text-gray-100">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{project.description}</p>
 
                 {/* Tech Stack */}
