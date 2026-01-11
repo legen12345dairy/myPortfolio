@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-900/50' : 'bg-transparent'
+        isScrolled ? 'bg-white dark:bg-slate-950 shadow-md dark:shadow-slate-900/50' : 'bg-transparent'
       }`}
     >
       <nav className="container-custom">
@@ -88,7 +88,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg dark:shadow-gray-900/50">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-950 shadow-lg dark:shadow-slate-900/50">
             <div className="flex flex-col space-y-4 p-6">
               {navItems.map((item) => (
                 <button

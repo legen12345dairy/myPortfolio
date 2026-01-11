@@ -88,7 +88,7 @@ const Contact = () => {
   ].filter(info => info.value && info.link) // Filter out empty values
 
   return (
-    <section id="contact" className="section bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="section bg-gray-50 dark:bg-slate-900">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

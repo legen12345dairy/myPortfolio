@@ -19,7 +19,7 @@ const Projects = () => {
     : projectsData.filter(project => project.category === filter)
 
   return (
-    <section id="projects" className="section bg-white dark:bg-gray-900">
+    <section id="projects" className="section bg-white dark:bg-slate-950">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

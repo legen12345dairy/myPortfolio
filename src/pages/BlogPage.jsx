@@ -16,7 +16,7 @@ const BlogPage = () => {
     : blogPosts.filter(post => post.tags.includes(selectedTag))
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950">
       <div className="section container-custom">
         {/* Header */}
         <motion.div
@@ -45,7 +45,7 @@ const BlogPage = () => {
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                 selectedTag === tag
                   ? 'bg-primary-600 text-white shadow-md'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 shadow-sm'
+                  : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 shadow-sm'
               }`}
             >
               {tag}

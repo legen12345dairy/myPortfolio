@@ -2,8 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const Card = ({ children, className = '', hoverable = true, ...props }) => {
-  const baseClasses = 'bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900/50 p-6 transition-shadow duration-300'
-  const hoverClasses = hoverable ? 'hover:shadow-xl dark:hover:shadow-gray-900/70' : ''
+  const baseClasses = 'bg-white dark:bg-slate-800 rounded-lg shadow-md dark:shadow-slate-900/50 p-6 transition-shadow duration-300'
+  const hoverClasses = hoverable ? 'hover:shadow-xl dark:hover:shadow-slate-900/70' : ''
   
   return (
     <motion.div

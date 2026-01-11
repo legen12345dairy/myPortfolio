@@ -6,7 +6,7 @@ import { FaCalendar, FaClock } from 'react-icons/fa'
 const BlogCard = ({ post }) => {
   return (
     <motion.article
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900/50 overflow-hidden hover:shadow-xl dark:hover:shadow-gray-900/70 transition-shadow duration-300"
+      className="bg-white dark:bg-slate-800 rounded-lg shadow-md dark:shadow-slate-900/50 overflow-hidden hover:shadow-xl dark:hover:shadow-slate-900/70 transition-shadow duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

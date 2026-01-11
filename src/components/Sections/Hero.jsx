@@ -19,7 +19,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20">
+    <section id="home" className="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-950 dark:to-slate-900 py-20">
       <div className="container-custom text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
