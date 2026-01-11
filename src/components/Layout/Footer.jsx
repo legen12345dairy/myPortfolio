@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">Portfolio</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Mayank Rawat</h3>
             <p className="text-gray-400">
               Building innovative solutions and sharing knowledge through code.
             </p>
@@ -72,7 +72,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} Portfolio. All rights reserved.</p>
+          <p>&copy; {currentYear} Mayank Rawat. All rights reserved.</p>
         </div>
       </div>
     </footer>

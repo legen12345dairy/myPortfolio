@@ -48,7 +48,7 @@ const Header = () => {
             to="/"
             className="text-2xl font-bold text-gradient hover:opacity-80 transition-opacity"
           >
-            Portfolio
+            Mayank Rawat
           </Link>
 
           {/* Desktop Navigation */}
