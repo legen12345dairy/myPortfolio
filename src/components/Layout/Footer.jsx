@@ -1,15 +1,38 @@
 import React from 'react'
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa'
+import { usePortfolioData } from '../../hooks/usePortfolioData'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const { data: contactData } = usePortfolioData('contact')
 
   const socialLinks = [
-    { icon: FaGithub, url: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: FaLinkedin, url: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: FaTwitter, url: 'https://twitter.com/yourusername', label: 'Twitter' },
-    { icon: FaEnvelope, url: 'mailto:your.email@example.com', label: 'Email' },
-  ]
+    { 
+      icon: FaEnvelope, 
+      url: contactData?.email ? `mailto:${contactData.email}` : 'mailto:rawat.mayank1234@gmail.com', 
+      label: 'Email' 
+    },
+    { 
+      icon: FaWhatsapp, 
+      url: contactData?.whatsapp_url || 'https://wa.me/919643764341', 
+      label: 'WhatsApp' 
+    },
+    { 
+      icon: FaLinkedin, 
+      url: contactData?.linkedin_url || 'https://www.linkedin.com/in/mayank-rawat-0585a010b/', 
+      label: 'LinkedIn' 
+    },
+    { 
+      icon: FaGithub, 
+      url: contactData?.github_url || 'https://github.com/legen12345dairy', 
+      label: 'GitHub' 
+    },
+    { 
+      icon: FaInstagram, 
+      url: contactData?.instagram_url || 'https://www.instagram.com/_mayank_rawat', 
+      label: 'Instagram' 
+    },
+  ].filter(link => link.url) // Filter out any empty URLs
 
   return (
     <footer className="bg-gray-900 text-gray-300">
