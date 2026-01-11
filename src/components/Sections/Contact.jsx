@@ -143,7 +143,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="subject" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
                     Subject
                   </label>
                   <input
@@ -157,7 +157,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
                     Message
                   </label>
                   <textarea

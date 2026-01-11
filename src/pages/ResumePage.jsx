@@ -69,7 +69,7 @@ const ResumePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950">
       <div className="section container-custom">
         {/* Header */}
         <motion.div
@@ -79,7 +79,7 @@ const ResumePage = () => {
           className="text-center mb-12"
         >
           <h1 className="heading text-gradient mb-4">Resume</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
             iOS Developer with 7+ years of experience in building high-performance mobile applications
           </p>
           <Button
@@ -100,20 +100,20 @@ const ResumePage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="flex items-center mb-6">
-              <FaBriefcase className="text-3xl text-primary-600 mr-3" />
-              <h2 className="text-3xl font-bold">Work Experience</h2>
+              <FaBriefcase className="text-3xl text-primary-600 dark:text-cyan-400 mr-3" />
+              <h2 className="text-3xl font-bold dark:text-gray-100">Work Experience</h2>
             </div>
             <div className="space-y-6">
               {experience.map((job, index) => (
                 <Card key={index}>
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
-                      <p className="text-primary-600 font-medium">{job.company}</p>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{job.title}</h3>
+                      <p className="text-primary-600 dark:text-cyan-400 font-medium">{job.company}</p>
                     </div>
-                    <span className="text-gray-600 mt-1 md:mt-0">{job.period}</span>
+                    <span className="text-gray-600 dark:text-gray-400 mt-1 md:mt-0">{job.period}</span>
                   </div>
-                  <ul className="list-disc list-inside space-y-2 text-gray-700">
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                     {job.description.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -130,20 +130,20 @@ const ResumePage = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="flex items-center mb-6">
-              <FaGraduationCap className="text-3xl text-primary-600 mr-3" />
-              <h2 className="text-3xl font-bold">Education</h2>
+              <FaGraduationCap className="text-3xl text-primary-600 dark:text-cyan-400 mr-3" />
+              <h2 className="text-3xl font-bold dark:text-gray-100">Education</h2>
             </div>
             <div className="space-y-6">
               {education.map((edu, index) => (
                 <Card key={index}>
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">{edu.degree}</h3>
-                      <p className="text-primary-600 font-medium">{edu.school}</p>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{edu.degree}</h3>
+                      <p className="text-primary-600 dark:text-cyan-400 font-medium">{edu.school}</p>
                     </div>
-                    <span className="text-gray-600 mt-1 md:mt-0">{edu.period}</span>
+                    <span className="text-gray-600 dark:text-gray-400 mt-1 md:mt-0">{edu.period}</span>
                   </div>
-                  {edu.description && <p className="text-gray-700">{edu.description}</p>}
+                  {edu.description && <p className="text-gray-700 dark:text-gray-300">{edu.description}</p>}
                 </Card>
               ))}
             </div>
@@ -156,19 +156,19 @@ const ResumePage = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="flex items-center mb-6">
-              <FaCode className="text-3xl text-primary-600 mr-3" />
-              <h2 className="text-3xl font-bold">Technical Skills</h2>
+              <FaCode className="text-3xl text-primary-600 dark:text-cyan-400 mr-3" />
+              <h2 className="text-3xl font-bold dark:text-gray-100">Technical Skills</h2>
             </div>
             <Card>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {Object.entries(technicalSkills).map(([category, skills]) => (
                   <div key={category}>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">{category}</h3>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">{category}</h3>
                     <div className="flex flex-wrap gap-2">
                       {skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm"
+                          className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm"
                         >
                           {skill}
                         </span>
@@ -187,14 +187,14 @@ const ResumePage = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <div className="flex items-center mb-6">
-              <FaAward className="text-3xl text-primary-600 mr-3" />
-              <h2 className="text-3xl font-bold">Certifications</h2>
+              <FaAward className="text-3xl text-primary-600 dark:text-cyan-400 mr-3" />
+              <h2 className="text-3xl font-bold dark:text-gray-100">Certifications</h2>
             </div>
             <Card>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {certifications.map((cert, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
-                    <span className="w-2 h-2 bg-primary-600 rounded-full mr-3"></span>
+                  <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
+                    <span className="w-2 h-2 bg-primary-600 dark:bg-cyan-400 rounded-full mr-3"></span>
                     {cert}
                   </li>
                 ))}
