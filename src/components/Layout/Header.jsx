@@ -46,7 +46,7 @@ const Header = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-bold text-gradient dark:text-white hover:opacity-80 transition-opacity"
+            className="text-2xl font-bold text-gradient hover:opacity-80 transition-opacity"
           >
             Mayank Rawat
           </Link>
