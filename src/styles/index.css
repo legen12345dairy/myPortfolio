@@ -33,8 +33,13 @@
     @apply bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent;
   }
   
-  .dark .text-gradient {
-    @apply text-white bg-none bg-clip-border;
+  @media (prefers-color-scheme: dark) {
+    .text-gradient {
+      color: white !important;
+      background: none !important;
+      background-clip: border-box !important;
+      -webkit-background-clip: border-box !important;
+    }
   }
   
   .card {
