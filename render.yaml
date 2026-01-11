@@ -21,7 +21,7 @@ services:
     
   # Frontend Service
   - type: web
-    name: mayank-rawat-portfolio
+    name: mayankrawat
     env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
